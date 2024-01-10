@@ -1,11 +1,18 @@
 plugins {
     kotlin("multiplatform") version "1.9.22"
     kotlin("plugin.serialization") version "1.9.22"
+    id("app.cash.sqldelight") version "2.0.1"
 }
 
 group = "me.user"
 version = "1.0-SNAPSHOT"
-
+sqldelight {
+    databases {
+        create("Database") {
+            packageName.set("com.github.springeye.money")
+        }
+    }
+}
 repositories {
     mavenCentral()
 }
